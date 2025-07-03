@@ -10,6 +10,48 @@
     <title>Kafe nettside | Om oss</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+<style> 
+    body {
+  background-color: #fdfaf5; /* Lys og rolig kremfarge */
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fjerner unødvendig toppmellomrom */
+.main_slide4 {
+  margin-top: 20px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Justerer tekstbredde og typografi */
+.chef-feed {
+  flex: 1;
+}
+
+.chef-feed p {
+  font-size: 18px;
+  color: #3c2b1d; /* Dyp brun tekst */
+  margin-bottom: 16px;
+}
+
+/* Sørger for at bildet ikke strekker seg mer enn nødvendig */
+.chef img {
+  max-width: 100%;
+  height: auto;
+}
+    
+
+
+
+    </style>
+</head>
 <body>
     <header class="site-header">
   <div class="header-inner">
@@ -44,17 +86,26 @@
     <!-- Seksjon: Kundeanmeldelser -->
     <div class="main_slide4">
         <div class="chef-feed">
-            <h2>Kunde <span style="color: red;">Tilbakemeldinger</span></h2>
-            <p>Lang beskrivelse / kundeuttalelser</p>
+        <h2> <span style="color: #8b5c2c;"> Litt om oss</span></h2>
+        <p>Kaffe Lykke er en liten kommunal bydelskafé underlagt Nav. Kafeen åpner for inkludering og muligheter ved å tilby arbeidstrening til ungdom og voksne som står utenfor arbeidslivet. 
+            De ansatte rekrutteres gjennom NAV og får mulighet til opplæring og arbeidserfaring i et trygg og inkluderende miljø hos Kaffe Lykke. 
+            Etter å ha fullført opplæring, skaffer de seg en annen jobb og går videre i arbeidslivet. Kaffe Lykke blir altså deres startpunkt inn i arbeidslivet. 
+            De som viser stor interesse og ønske om å bli, får selvfølgelig muligheten til å bli værende i kafeen.</p>
+        <br>
+         <p>Kaffe Lykke er en liten kommunal bydelskafé underlagt Nav. Kafeen åpner for inkludering og muligheter ved å tilby arbeidstrening til ungdom og voksne som står utenfor arbeidslivet. 
+                De ansatte rekrutteres gjennom NAV og får mulighet til opplæring og arbeidserfaring i et trygg og inkluderende miljø hos Kaffe Lykke. 
+                Etter å ha fullført opplæring, skaffer de seg en annen jobb og går videre i arbeidslivet. Kaffe Lykke blir altså deres startpunkt inn i arbeidslivet. 
+                De som viser stor interesse og ønske om å bli, får selvfølgelig muligheten til å bli værende i kafeen.</p>
+         
             <div class="chef-detail">
-                <div>
-                    <img src="./bilder/logo.png" alt="">
-                </div>
-            </div>
+            
+        </div>
         </div>
         <div class="chef">
-            <img src="./bilder/kokk1.png" alt="Kokk">
+        <img src="./bilder/kokk1.png" alt="">
         </div>
+
+
     </div>
 
     <div class="footer">
@@ -64,9 +115,9 @@
             </div>
             <div>
                 <address> 
-                    <p>Email: kaffeLykke@gamil.com </p>
+                    <p>Epost: kaffeLykke@gamil.com </p>
                     <p>Tlf: +47 64214325</p>
-                    <p>Adresse: ......</p>
+                    <p>Adresse: Københavngata 20, 0567 Oslo</p>
                 </address>
             </div>
         </div>
