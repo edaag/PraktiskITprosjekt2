@@ -1,60 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="./bilder/favicon_bedre.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kafe nettside | Om oss</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="headerbar">
-                <div class="account">
-                    <ul>
-                        <a href="index.html"><li><i class="fa-solid fa-house-chimney"></i></li></a>
-                    </ul>
-                </div>
-                <div class="nav">
-                    <ul>
-                        <a href="index.html"><li>Hjem</li></a>
-                        <a href="meny.html"><li>Meny</li></a>
-                        <a href="omoss.html"><li>Om oss</li></a>
-                        <a href="kontakt.html"><li>Kontakt oss</li></a>
-                    </ul>
-                </div>
-            </div>
+    <header class="site-header">
+  <div class="header-inner">
+    <!-- Hjem-ikon -->
+    <a class="home-icon" href="index.html" aria-label="Hjem">
+      <i class="fa-solid fa-house-chimney"></i>
+    </a>
 
-            <a href="index.html">
-                <div class="logo">
-                    <img src="./bilder/logo.png" alt="Logo" />
-                </div>
-            </a>
+    <!-- Logo -->
+    <a class="logo" href="index.html">
+      <img src="./bilder/logo.png" alt="Kaffe Lykke logo" />
+    </a>
 
-            <div class="bar">
-                <i class="fa-solid fa-bars"></i>
-                <i class="fa-solid fa-xmark" id="hdcross"></i>
-            </div>
+    <!-- Navigasjon -->
+    <nav class="nav" aria-label="Hovedmeny">
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="meny.html">Meny</a></li>
+        <li><a href="omoss.html">Om oss</a></li>
+        <li><a href="kontakt.html">Kontakt oss</a></li>
+      </ul>
+    </nav>
 
-            <div class="nav">
-                <ul>
-                    <a href="index.html"><li>Hjem</li></a>
-                    <a href="meny.html"><li>Meny</li></a>
-                    <a href="omoss.html"><li>Om oss</li></a>
-                    <a href="kontakt.html"><li>Kontakt oss</li></a>
-                </ul>
-            </div>
+    <!-- Hamburger-ikon (mobil) -->
+    <button class="burger" aria-label="Åpne meny">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
 
-            <div class="account">
-                <ul>
-                    <a href="index.html"><li><i class="fa-solid fa-house-chimney"></i></li></a>
-                </ul>
-            </div>
-        </div>
-    </header>
 
     <!-- Seksjon: Kundeanmeldelser -->
     <div class="main_slide4">

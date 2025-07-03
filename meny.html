@@ -1,143 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
 <head>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="./bilder/favicon_bedre.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kafe nettside | Meny</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kafé Lykke | Meny</title>
+
+  <!-- Fonter & ikoner -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Din CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="headerbar">
-                <div class="account">
-                    <ul>
-                        <a href="index.html"><li><i class="fa-solid fa-house-chimney"></i></li></a>
-                    </ul>
-                </div>
-                <div class="nav">
-                    <ul>
-                        <a href="index.html"><li>Hjem</li></a>
-                        <a href="meny.html"><li>Meny</li></a>
-                        <a href="omoss.html"><li>Om oss</li></a>
-                        <a href="kontakt.html"><li>Kontakt oss</li></a>
-                    </ul>
-                </div>
-            </div>
-
-            <a href="index.html">
-                <div class="logo">
-                    <img src="./bilder/logo.png" alt="Logo" />
-                </div>
-            </a>
-
-            <div class="bar">
-                <i class="fa-solid fa-bars"></i>
-                <i class="fa-solid fa-xmark" id="hdcross"></i>
-            </div>
-
-            <div class="nav">
-                <ul>
-                    <a href="index.html"><li>Hjem</li></a>
-                    <a href="meny.html"><li>Meny</li></a>
-                    <a href="omoss.html"><li>Om oss</li></a>
-                    <a href="kontakt.html"><li>Kontakt oss</li></a>
-                </ul>
-            </div>
-
-            <div class="account">
-                <ul>
-                    <a href="index.html"><li><i class="fa-solid fa-house-chimney"></i></li></a>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- Innhold for meny-siden -->
-    <div class="main_slide2">
-        <div class="foodimg">
-            <img src="./bilder/plate1.jpg" alt="matbilde 1" />
-        </div>
-        <div class="question">
-            <div>
-                <h2>Hvorfor velger folk oss?</h2>
-            </div>
-            <div class="q-ans">
-                <div><img src="./bilder/plate2.jpg" alt="" /></div>
-                <div>
-                    <h4>Velg din favoritt</h4>
-                    <p>Beskrivelse av fordel.</p>
-                </div>
-            </div>
-            <div class="q-ans">
-                <div><img src="./bilder/plate3.jpg" alt="" /></div>
-                <div>
-                    <h4>Velg din favoritt</h4>
-                    <p>Beskrivelse av fordel.</p>
-                </div>
-            </div>
-            <div class="q-ans">
-                <div><img src="./bilder/plate4.jpg" alt="" /></div>
-                <div>
-                    <h4>Velg din favoritt</h4>
-                    <p>Beskrivelse av fordel.</p>
-                </div>
-            </div>
-        </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="home-icon" href="index.html"><i class="fa-solid fa-house-chimney"></i></a>
+      <a class="logo" href="index.html"><img src="./bilder/logo.png" alt="Logo"></a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Hjem</a></li>
+          <li><a href="meny.html">Meny</a></li>
+          <li><a href="omoss.html">Om oss</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="burger"><i class="fa-solid fa-bars"></i></button>
     </div>
+  </header>
 
-    <div class="main_slide3">
-        <div class="fav-head">
-            <h3>Våre populære matretter</h3>
-            <p>Introduksjonstekst</p>
-        </div>
-        <div class="fav-food">
-            <div class="item">
-                <div><img src="./bilder/plate1.jpg" alt=""></div>
-                <h3>Food name</h3>
-                <p>Beskrivelse</p>
-                <p class="fav-price">75 kr</p>
-            </div>
-            <div class="item">
-                <div><img src="./bilder/plate2.jpg" alt=""></div>
-                <h3>Food name</h3>
-                <p>Beskrivelse</p>
-                <p class="fav-price">75 kr</p>
-            </div>
-            <div class="item">
-                <div><img src="./bilder/plate3.jpg" alt=""></div>
-                <h3>Food name</h3>
-                <p>Beskrivelse</p>
-                <p class="fav-price">75 kr</p>
-            </div>
-            <div class="item">
-                <div><img src="./bilder/plate4.jpg" alt=""></div>
-                <h3>Food name</h3>
-                <p>Beskrivelse</p>
-                <p class="fav-price">75 kr</p>
-            </div>
-        </div>
-        <div class="dsgn"></div>
+  <!-- UKEMENY -->
+  <section class="cards-section meny-side">
+    <div class="container">
+      <h2>Ukemeny</h2>
+      <div id="week-menu" class="card-container"></div>
     </div>
+  </section>
 
-    <div class="footer">
-        <div class="footer-1">
-            <div class="logo">
-                <img src="./bilder/logo.png" alt="">
-            </div>
-            <div>
-                <address> 
-                    <p>Email: kaffeLykke@gamil.com </p>
-                    <p>Tlf: +47 64214325</p>
-                    <p>Adresse: ......</p>
-                </address>
-            </div>
-        </div>
-    </div>
+  <!-- FOOTER -->
+  <footer class="footer">…</footer>
 
-    <script src="app.js"></script>
+  <!-- Sanity + 2 rader med 3+2 kort -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@sanity/client@7.6.0?bundle';
+    const client = createClient({
+      projectId: 'ynsu3crx',
+      dataset:   'production',
+      useCdn:    true,
+      apiVersion:'2023-05-23'
+    });
+
+    const q = `*[_type=="weekMenu"]{
+      title,
+      description,
+      price,
+      "imageUrl": image.asset->url,
+      allergens
+    }`;
+
+    async function render() {
+      const items = await client.fetch(q);
+      const container = document.getElementById('week-menu');
+
+      // Lag to rader
+      const row1 = document.createElement('div');
+      const row2 = document.createElement('div');
+      row1.className = row2.className = 'row';
+
+      const days = ['Mandag','Tirsdag','Onsdag','Torsdag','Fredag'];
+      days.forEach((day, i) => {
+        const it = items[i] || {};
+        const art = document.createElement('article');
+        art.className = 'card-wrapper';
+        art.innerHTML = `
+          <div class="weekday">${day}</div>
+          <figure class="card">
+            <img src="${it.imageUrl||''}" alt="${it.title||''}">
+          </figure>
+          <h3>${it.title||''}</h3>
+          <p class="fav-price">${it.price ? it.price + ' kr' : ''}</p>
+          <p class="desc">${it.description||''}</p>
+          <p class="allergens">Allergener: ${Array.isArray(it.allergens) ? it.allergens.join(', ') : '—'}</p>
+        `;
+        if (i < 3) row1.appendChild(art);
+        else       row2.appendChild(art);
+      });
+
+      container.append(row1, row2);
+    }
+
+    render();
+  </script>
+
 </body>
 </html>
