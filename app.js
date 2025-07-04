@@ -1,16 +1,17 @@
 
-const bar = document.querySelector('.fa-bars');
-const cross = document.querySelector('#hdcross');
-const headerbar = document.querySelector('.headerbar');
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.querySelector('.burger');
+  const nav    = document.querySelector('.nav');
 
-bar.addEventListener('click',function(){
-    setTimeout(()=>{
-        cross.style.display = 'block';
-    },200);
-    headerbar.style.right = '0%';
-})
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
 
-cross.addEventListener('click',function(){
-    cross.style.display = 'none';
-    headerbar.style.right = '-100%';
-})
+  // (valgfritt) Lukk menyen når du klikker én av lenkene
+  document.querySelectorAll('.nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+    });
+  });
+});
+

@@ -8,13 +8,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kafe nettside | Kontakt oss</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Quicksand', sans-serif;
-        }
+      
     
         body {
           background:#faf6ee;
@@ -24,36 +20,7 @@
           line-height: 1.7;
         }
     
-        header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px 40px;
-          border-bottom: 2px solid #c8a46b;
-          background: #fff;
-        }
-    
-        .logo img {
-          height: 50px;
-        }
-    
-        .nav ul {
-          list-style: none;
-          display: flex;
-          gap: 40px;
-        }
-    
-        .nav ul li {
-          font-weight: 600;
-        }
-    
-        .nav ul a {
-          text-decoration: none;
-          font-weight: 600;
-            color: #333;
-      
-        }
-    
+  
         .main_slide4 {
           display: flex;
           justify-content: space-between;
@@ -61,25 +28,28 @@
           padding: 0 40px;
           gap: 60px;
           max-width: 1200px;
-          margin: 60px auto;
-        }
+          margin: 80px auto;
+          min-height: 500px; /* ← Økt høyde */
+    }
+
     
         
         
 
         .chef-feed {
           flex: 1;
+          font-size: 20px;
         }
     
      
         .chef-feed h2 {
-            color: #8b5c2c; /* mørkere farge til overskrift */
-            font-size: 28px;
+            color: black; /* mørkere farge til overskrift */
+            font-size: 35px;
             margin-bottom: 0; /* ← dette er nøkkelen */
         }
 
         .chef-feed h3 {
-            color: #8b5c2c;
+            color: black;
             font-size: 24px;
             margin-top: 20px;
             margin-bottom: 4px;
@@ -102,7 +72,7 @@
 
         .chef-feed li {
         margin: 2px 0;
-        color: #8b5c2c; /* samme farge som footer */
+        color: black; /* samme farge som footer */
         line-height: 1.4;
         }
         
@@ -112,7 +82,7 @@
             background:#fefbf8;
             ;            ;
             padding: 30px 40px;
-            border-top: 1px solid #e3dcd2;
+            border-top: 2px solid var(--clr-accent);
             margin-top: 60px;
         }
     
@@ -141,35 +111,16 @@
         
         address p {
           margin-bottom: 4px;
+          font-size: 18px;              /* ← gjør teksten større */
+          color: black;               /* (valgfritt) litt dypere farge for lesbarhet */
+          line-height: 1.6;
         }
     
         /* Responsiv */
-        @media screen and (max-width: 768px) {
-          .main_slide4 {
-            flex-direction: column;
-            gap: 20px;
-          }
     
-          .nav ul {
-            flex-direction: column;
-            gap: 10px;
-            align-items: flex-start;
-          }
-    
-          header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-          }
-    
-          .footer-1 {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-        }
         .chef-feed a {
             text-decoration: none;
-            color: #8b5c2c;
+            color: black;
         }
 
         .chef-feed a:hover {
