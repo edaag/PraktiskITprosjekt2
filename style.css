@@ -140,67 +140,79 @@ body {
    ========================================================== */
 .hero {
   position: relative;
-  height: calc(94vh - var(--header-h));      /* endrer på mellomrommet på bildet og bunnen */
-  background:
-    linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)),
-    url('./bilder/bakgrunnhjem.png') center/cover no-repeat;
+  height: calc(100vh - var(--header-h));
   display: flex;
-  align-items: flex-start;                    /* plasser innhold øverst */
+  align-items: flex-start;    /* plasser innholdet øverst */
+  justify-content: center;    /* midt horisontalt */
+  padding-top: 24px;          /* litt luft ned fra header */
   overflow: hidden;
-}
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0));
-  z-index: 1;
+  background-image:
+  url('./bilder/edited_correct_image_20pct_topspace_nostrip.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
-  margin-top: var(--header-h);                /* presis på level med navbar */
-  padding: 0 2rem;                            /* litt luft på sidene */
-  max-width: 800px;                           /* bred nok for andre linje */
+  z-index: 1;
+  text-align: center;
+  background: none;   /* fjern bakgrunnsboksen */
+  padding: 0;
 }
 
 .hero-content h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;          /* juster størrelsen etter ønske */
+  font-size: 3.2rem;
   font-weight: 800;
-  line-height: 1.5;             /* tett linjehøyde */
-  color: #fff;
-  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
-
-  /* la bare <br> bryte linjen */
-  white-space: normal !important;
-  margin-bottom: 0.5em;       /* litt luft under overskriften */
-  margin-left: 60px;
+  line-height: 1.25;
+  color: #fff;                                /* hvit tekst */
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8);   /* sterk kontrast */
+  margin: 0 0 2rem 0; /* gir ca. dobbelt så mye mellomrom */
 }
 
-.hero-content h1 br {
-  display: block;             /* gjør <br> til blokkelement */
-                
-}
-
-
-/* CTA‐knapp */
 .btn-primary {
-  display: inline-block;
-  margin-top: 1.5rem;
-  margin-left:60px;
-  padding: 0.75rem 2rem;
   background-color: var(--clr-accent);
   color: #fff;
-  font-size: 1.125rem;
-  font-weight: 600;
+  padding: 0.75rem 1.5rem;
   border-radius: 6px;
+  font-weight: 600;
   text-decoration: none;
-  transition: opacity 0.3s;
+  transition: background-color 0.3s ease;
 }
+
 .btn-primary:hover {
-  opacity: 0.9;
+  background-color: #a9825c;
+}
+
+
+
+/* Mobil-tilpasning */
+@media (max-width: 768px) {
+  .hero {
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.2)),
+      url('./bilder/edited_correct_image_20pct_topspace_nostrip.png');
+    background-position: center;
+    height: calc(90vh - var(--header-h));
+  }
+
+  .hero-content {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+
+  .hero-content h1 {
+    margin-left: 0;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  }
+
+  .btn-primary {
+    margin-left: 0;
+  }
 }
 
 
@@ -629,3 +641,5 @@ body {
     margin: 0 auto 20px;
   }
 }
+
+
