@@ -31,98 +31,147 @@
     </div>
   </header>
 
-  <!-- UKEMENY -->
-  <section class="cards-section meny-side">
-    <div class="container">
-      <h2>Ukemeny</h2>
-      <div id="week-menu" class="card-container"></div>
-    </div>
-  </section>
+<!-- 🔸 MENYSEKSJON MED UKEMENY OG FAST MENY -->
+<section class="menyseksjon">
 
-  <!-- Sanity + 2 rader med 3+2 kort -->
+  <!-- UKEMENY - TEKSTBASERT -->
+  <div class="meny-boks ukemeny">
+    <h2>Ukemeny</h2>
+    <div id="week-menu" class="tekst-meny"></div>
+  </div>
+
+  <!-- SANITY INTEGRASJON -->
   <script type="module">
-  import { createClient } from 'https://esm.sh/@sanity/client@7.6.0?bundle';
+    import { createClient } from 'https://esm.sh/@sanity/client@7.6.0?bundle';
 
-  /* 1. Sanity-klient */
-  const client = createClient({
-    projectId: 'ynsu3crx',
-    dataset:   'production',
-    useCdn:    true,           // bytt til false hvis du vil se endringer helt øyeblikkelig
-    apiVersion:'2023-05-23'
-  });
-
-  /* 2. GROQ – inkluder day-feltet! */
-  const q = `*[_type=="weekMenu"]{
-    day,
-    title,
-    description,
-    price,
-    "imageUrl": image.asset->url,
-    allergens
-  }`;
-
-  /* 3. Fast ukedagsrekkefølge */
-  const dayOrder = ['monday','tuesday','wednesday','thursday','friday'];
-  const dayLabel = {          // til norsk visning
-    monday:    'MANDAG',
-    tuesday:   'TIRSDAG',
-    wednesday: 'ONSDAG',
-    thursday:  'TORSDAG',
-    friday:    'FREDAG'
-  };
-
-  async function render() {
-    const items = await client.fetch(q);
-
-    /* 4. Sortér etter dayOrder */
-    items.sort((a,b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
-
-    /* 5. Bygg kortene */
-    const container = document.getElementById('week-menu');
-    container.innerHTML = '';              // tøm tidligere innhold
-
-    // lag to rader automatisk (3 + 2 kort)
-    const rows = [document.createElement('div'), document.createElement('div')];
-    rows.forEach(r => { r.className = 'row'; container.appendChild(r); });
-
-    items.forEach((it, idx) => {
-      const art = document.createElement('article');
-      art.className = 'card-wrapper';
-      art.innerHTML = `
-        <div class="weekday">${dayLabel[it.day] ?? it.day}</div>
-        <figure class="card">
-          <img src="${it.imageUrl ?? ''}" alt="${it.title ?? ''}">
-        </figure>
-        <h3>${it.title ?? ''}</h3>
-        <p class="fav-price">${it.price ? it.price + ' kr' : ''}</p>
-        <p class="desc">${it.description ?? ''}</p>
-        <p class="allergens">Allergener: ${
-          Array.isArray(it.allergens) && it.allergens.length
-            ? it.allergens.join(', ')
-            : '—'
-        }</p>
-      `;
-      rows[idx < 3 ? 0 : 1].appendChild(art);
+    // 1. Sanity-klient
+    const client = createClient({
+      projectId: 'ynsu3crx',
+      dataset: 'production',
+      useCdn: true,
+      apiVersion: '2023-05-23'
     });
-  }
 
-  render();
-</script>
+    // 2. GROQ-spørring – henter ukedag, tittel, beskrivelse, pris og allergener
+    const query = `*[_type=="weekMenu"]{
+      day,
+      title,
+      description,
+      price,
+      allergens
+    }`;
+
+    // 3. Ukedagsrekkefølge og norsk visning
+    const dayOrder = ['monday','tuesday','wednesday','thursday','friday'];
+    const dayLabel = {
+      monday: 'MANDAG',
+      tuesday: 'TIRSDAG',
+      wednesday: 'ONSDAG',
+      thursday: 'TORSDAG',
+      friday: 'FREDAG'
+    };
+
+    // 4. Hent og vis data
+    async function render() {
+      const items = await client.fetch(query);
+      items.sort((a,b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
+
+      const container = document.getElementById('week-menu');
+      container.innerHTML = items.map(it => `
+        <div class="meny-dag">
+          <h3>${dayLabel[it.day]}</h3>
+          <p class="rett-navn">${it.title ?? ''}</p>
+          <p class="rett-beskrivelse">${it.description ?? ''}</p>
+          ${it.price ? `<p class="price">${it.price} kr</p>` : ''}
+          <p class="allergens">Allergener: ${
+            Array.isArray(it.allergens) && it.allergens.length
+              ? it.allergens.join(', ')
+              : '—'
+          }</p>
+        </div>
+      `).join('');
+    }
+
+    render();
+  </script>
+
+  <!-- FAST MENY -->
+<div class="meny-boks">
+  <h2 class="fastmeny-tittel">Fast meny</h2>
+
+  <div class="fastmeny">
+
+      <div class="meny-kategori">
+        <h3>Kaffemeny</h3>
+        <ul>
+          <li>Sort kaffe — 29,- / 39,-</li>
+          <li>Capuccino — 43,- / 49,-</li>
+          <li>Kaffe latte — 43,- / 49,-</li>
+          <li>Cortado — 39,- / 44,-</li>
+          <li>Espresso — 35,- / 40,-</li>
+          <li>Amerikano — 35,- / 40,-</li>
+          <li>Kaffe mocca — 49,- / 54,-</li>
+          <li>Varm sjokolade — 54,-</li>
+          <li>Te — 35,-</li>
+          <li>Indisch chai — 49,-</li>
+          <li>Islatte — 54,-</li>
+        </ul>
+      </div>
+
+      <div class="meny-kategori">
+        <h3>Kald drikke</h3>
+        <ul>
+          <li>Saft fra Askim — 62,-</li>
+          <li>Brus fra Røros — 62,-</li>
+          <li>Farris — 45,-</li>
+          <li>Smoothie — 55,-</li>
+        </ul>
+      </div>
+
+      <div class="meny-kategori bakst">
+        <h3>Bakst</h3>
+        <ul>
+          <li>Sitronterte — 69,-</li>
+          <li>Kakestykke — 69,-</li>
+          <li>Kanelbolle — 34,-</li>
+          <li>Kjeks — 79,-</li>
+          <li>Lykke­brød — 84,-</li>
+          <li>Hel kake (12 biter) — 620,-</li>
+        </ul>
+      </div>
+
+      <div class="meny-kategori idisken">
+        <h3>I disken</h3>
+        <ul>
+          <li>Focaccia — 84,-</li>
+          <li>Bagel m/ varmrøkt laks & eggerøre — 106,-</li>
+          <li>Scones m/ hasselnøtter — 54,-</li>
+          <li>Yoghurt m/ granola & syltetøy — 54,-</li>
+          <li>Bagel m/ kylling & bacon — 106,-</li>
+          <li>Chiapudding m/ mango & pasjonsfrukt — 49,-</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 
- <div class="footer">
+
+<!-- FOOTER -->
+</div>
+    <div class="footer">
         <div class="footer-1" style="flex-direction: column; align-items: center; text-align: center;">
-            <div class="logo" style="margin-bottom: 12px;">
+            <div class="logo" style="order:-1; margin-bottom: 12px;">
                 <img src="./bilder/logo.png" alt="" style="height: 80px;">
             </div>
             <address> 
-                <p>Epost: kaffeLykke@gmail.com </p>
-                <p>Tlf: +47 64214325</p>
+                <p>Epost: Eivind.sand.nielsen@nav.no & Vibeke.skovly@nav.no </p>
+                <p>Tlf: +47 90974026</p>
                 <p>Adresse: Københavngata 20, 0567 Oslo</p>
             </address>
         </div>
-    </div>
-  <script src="app.js"></script>
+    </div> - lim inn på meny og index siden, footer
 
+<script src="app.js"></script>
 </body>
 </html>
