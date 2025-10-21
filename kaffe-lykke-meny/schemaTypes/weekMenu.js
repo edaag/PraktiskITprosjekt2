@@ -53,14 +53,6 @@ export default {
       options: { layout: 'tags' }
     },
 
-    /* Bilde */
-    {
-      name: 'image',
-      title: 'Bilde',
-      type:  'image',
-      options: { hotspot: true }
-    },
-
     /* Pris */
     {
       name: 'price',
