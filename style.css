@@ -602,7 +602,7 @@ body {
   font-size: 1.6rem;
   color: var(--clr-accent);
   text-transform: uppercase;
-  font-weight: 800;           /* 🔸 Gjør ukedagene fetere */
+  font-weight: 800;           /*Gjør ukedagene fetere */
   margin: 1.5rem 0 0.75rem;
   letter-spacing: 1px;
 }
@@ -627,17 +627,11 @@ body {
 
 /* Pris og allergener */
 .meny-dag .price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  margin: 0.3rem 0;
-  color: #000;
+  font-size: 1.3rem;       /* større pris */
+  font-weight: 600;        /* litt tykkere skrift */
+  color: var(--clr-accent); /* gir en pen gullfarget tone (samme som overskrifter) */
 }
-.meny-dag .allergens {
-  font-size: 0.9rem;
-  color: #6b5e51;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
+
 
 /* Diskret linje mellom dagene */
 .meny-dag {
@@ -758,3 +752,15 @@ body {
     font-size: 0.95rem;
   }
 }
+
+.meny-bilde {
+  width: 260px;         /* gjør bildet større (juster tall etter smak) */
+  margin-top: 30px;     /* flytter det lenger ned */
+  border-radius: 16px;  /* mykere hjørner */
+  display: block;       /* sentrerer bildet */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* gir litt dybde */
+}
+
+
