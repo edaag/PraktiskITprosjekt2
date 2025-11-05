@@ -22,17 +22,33 @@
 }
 
 /* ==========================================================
-   3) BODY & TYPOGRAFI
+   3) BODY & TYPOGRAFI + FIKS: FOOTER FESTER SEG NEDERST
    ========================================================== */
 html, body {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   font-family: 'Cormorant Garamond', serif;
   background: var(--clr-bg);
   color: #000;
+}
+
+/* Hovedinnholdet skal ta opp all ledig plass */
+main {
+  flex: 1;
+}
+
+/* Footer forblir nederst */
+.footer {
+  margin-top: auto;
+  background: #ffffff;
+  border-top: 1px solid var(--clr-accent);
+  text-align: center;
+  padding: 40px 20px;
 }
 
 /* ==========================================================
@@ -135,63 +151,97 @@ body {
   transition: color 0.3s ease;
 }
 
+
 /* ==========================================================
-   5) HERO
+   5) HERO – RESPONSIV OG SENTRERT
    ========================================================== */
 .hero {
   position: relative;
-  height: calc(100vh - var(--header-h));
+  min-height: calc(100vh - var(--header-h)); /* fyller skjermen */
   display: flex;
-  align-items: flex-start;  /* tekst øverst */
-  justify-content: center;  /* sentrerer horisontalt */
-  padding-top: 20px;        /* juster avstand fra toppen */
-  background-image: url('./bilder/bakgrunnsbilde4.png'); /* fjernet skygge */
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 50px 80px;
+  background-image: url('./bilder/bakgrunnsbilde.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  text-align: right;
 }
 
-
-/*  tekst og knapp */
+/* Innholdet i hero (tekst + knapp) */
 .hero-content {
-  text-align: center;
-  color: #000;              /* svart tekst */
-  background: transparent;  /* fjernet mørk boks */
-  padding: 1rem 2rem;
-  box-shadow: none;
+  display: flex;
+  flex-wrap: wrap; /* slik at tekst og knapp flytter seg under hverandre */
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0); /* gjennomsiktig */
+  color: #5c3b23;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35);
+  padding: 1rem;
 }
 
-
-/* Overskrift */
+/* Overskriften */
 .hero-content h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 4.5rem;         /* stort, men balansert */
-  font-weight: 800;
-  color: #000;               /* svart tekst */
-  letter-spacing: 1px;
-  text-shadow:
-    0 2px 4px rgba(255, 255, 255, 0.8),   /* lys skygge under bokstaver */
-    0 -1px 3px rgba(0, 0, 0, 0.5);        /* svak mørk kontur */
-  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #5c3b23;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 0;
 }
-
-
 
 /* Knappen */
-.btn-primary {
-  background-color: var(--clr-accent);
+.hero-content .btn-primary {
+  background-color: #5c3b23;
   color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 6px;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 10px;
   font-weight: 600;
-  text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-  background-color: #a9825c;
+.hero-content .btn-primary:hover {
+  background-color: #b58b63;
   transform: translateY(-2px);
+}
+
+/* HERO — RESPONSIVT PÅ MOBIL */
+@media (max-width: 900px) {
+  .hero {
+    justify-content: center;   /* midtstill alt horisontalt */
+    padding: 0 5vw 10vh;       /* gir mer luft fra bunn */
+    text-align: center;
+  }
+
+  .hero-content {
+    flex-direction: column;    /* tekst over knapp */
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-content .btn-primary {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 12vh;      /* ekstra luft nederst */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
 }
 
 
@@ -199,21 +249,159 @@ body {
    6) OM OSS
    ========================================================== */
 .om-oss {
-  padding: 80px 20px 90px;          /*endrer mellomrom på om oss seksjonen */
+  padding: 100px 20px;          /*endrer mellomrom på om oss seksjonen */
   background-color: #ffffff;
   text-align: center;
 }
 .om-oss h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2d1f16;
+  letter-spacing: 1px;
 }
 .om-oss p {
-  font-size: 20px;
-  line-height: 1.6;
-  max-width: 800px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;              /* større brødtekst */
+  line-height: 1.8;             /* luftigere mellom linjene */
+  max-width: 900px;
   margin: 0 auto;
+  color: #2d1f16;
 }
+
+
+
+/* ==========================================================
+   FAVORITTER (forsiden)
+   ========================================================== */
+
+/* 1) Seksjon */
+.cards-section.favoritter-meny {
+  padding: 60px 20px;
+  background-color: var(--clr-bg);
+  text-align: center;
+}
+/* === Favoritter på meny-siden som hvitt kort === */
+.favoritter-box {
+  max-width: 1360px;               /* 🔹 Samme bredde som menyboksene over */
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 24px;             /* litt rundere hjørner for match */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 40px 50px;              /* 🔹 mindre luft over/under */
+  text-align: center;
+}
+
+
+/* Tittel i kortet */
+.favoritter-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin: 5px 0 5px;             /* 🔹 mindre luft over og under */
+  color: #2d1f16;
+}
+
+
+/* Juster bildene så alt får plass */
+.favoritter-box .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* mindre kort */
+  gap: 20px;
+}
+
+.favoritter-box .card-wrapper {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favoritter-box .card-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.favoritter-box .card img {
+  width: 100%;
+  height: 160px;                   /* 🔹 litt lavere for å få bedre balanse */
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+
+
+/* 2) Tittel */
+.cards-section.favoritter-meny h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;       /* lik stil som de andre boksene */
+  font-weight: 700;
+  margin: 5px 0 20px;      /* 🔹 mye mindre luft over og under */
+  color: #2d1f16;
+  letter-spacing: 0.5px;
+}
+
+
+/* 3) Grid av kortene */
+.cards-section.favoritter-meny .card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* fire like brede kolonner */
+  gap: 12px; /* jevnt mellomrom */
+}
+
+/* 4) Kortene – kun bilder */
+.cards-section.favoritter-meny .card-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden; /* viktig for å klippe bildene */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff; /* liten buffer for glatte kanter */
+}
+
+.cards-section.favoritter-meny .card-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cards-section.favoritter-meny .card {
+  width: 100%;
+  height: 100%;
+}
+
+.cards-section.favoritter-meny .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px; /* sørger for at bildet matcher kortet */
+  transition: transform 0.3s ease;
+}
+
+.cards-section.favoritter-meny .card:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsivt — 3 kolonner, 2, 1 */
+@media (max-width: 1000px) {
+  .cards-section.favoritter-meny .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .cards-section.favoritter-meny .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .cards-section.favoritter-meny .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ==========================================================
    A) FAVORITTER (forsiden)
@@ -528,31 +716,33 @@ body {
    🔹 MENY-FINJUSTERINGER (visuell balanse og mellomrom)
    ========================================================== */
 
-/* Avstand mellom Ukemeny og Fastmeny */
 .menyseksjon {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 80px; /* mellomrom mellom boksene */
-  padding: 60px 0;
+  flex-direction: row;
+  justify-content: center;      /* holder dem midtstilt */
+  align-items: flex-start;
+  align-items: stretch;   /* ← strekker boksene til samme høyde */
+  gap: 40px;                    /* luft mellom boksene */
+  padding: 60px 40px;           /* mindre padding på sidene */
+  flex-wrap: wrap;              /* gjør at de bryter pent på små skjermer */
 }
 
-/* Sørger for at begge menyboksene har samme stil */
 .meny-boks {
   background-image: url('./bilder/menymal.png');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   background-color: #fdfaf6;
-  max-width: 800px;
+  max-width: 660px;    /* ← reduser fra 670px */
   width: 100%;
-  padding: 80px 70px;
+  padding: 60px 50px;  /* litt mindre padding inni */
   border-radius: 24px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
   color: #2d1f16;
-  margin: 0 auto;
+  margin: 0;           /* ← fjern auto som tvang sentrering */
 }
+
 
 /* Tittel-stil */
 .meny-boks h2 {
@@ -711,6 +901,16 @@ body {
 }
 
 
+.fastmeny-bilde {
+  display: block;
+  width: 100%;               /* fyller hele bredden på boksen */
+  aspect-ratio: 4 / 3;       /* holder riktig proporsjon, juster 16/9 om ønskelig */
+  object-fit: cover;         /* fyller uten å forvrenge */
+  margin-top: 30px;          /* litt luft over bildet */
+  border-radius: 24px;       /* runde hjørner på alle sider */
+}
+
+
 
 
 
@@ -745,16 +945,6 @@ body {
 /* ==============================
    OM OSS – ENHETLIG STIL OG FULL BILDEDEKNING
    ============================== */
-
-.om-oss {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 100px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 120px;
-  background-color: transparent;
-}
 
 /* Hver boks */
 .about-section {
@@ -1011,26 +1201,16 @@ body {
 }
 
 
-/* === FIKS: FOOTER FESTER SEG NEDERST === */
 
-/* 1️⃣ Sørg for at hele siden bruker full høyde */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
-/* 2️⃣ Hovedinnholdet skal ta opp all ledig plass */
-body > *:not(.footer) {
-  flex: 1;
-}
+@media (max-width: 900px) {
+  .menyseksjon {
+    flex-direction: column;  /* ← stable igjen på smale skjermer */
+    align-items: center;
+  }
 
-/* 3️⃣ Footer forblir nederst */
-.footer {
-  margin-top: auto;
-  background: #ffffff;
-  border-top: 1px solid var(--clr-accent);
-  text-align: center;
-  padding: 40px 20px;
+  .meny-boks {
+    max-width: 90%;
+  }
 }
 
